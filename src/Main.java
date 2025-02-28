@@ -1,19 +1,18 @@
 import javax.swing.*;
 
 public class Main {
-    static void button() {
-        JFrame firstFrame = new JFrame();
-        JButton b1 = new JButton("Click me!");
-        firstFrame.add(b1);
-        b1.setBounds(200,100,100,100);
-        firstFrame.setSize(500, 500);
-        firstFrame.setLayout(null);
-        firstFrame.setVisible(true);
+    class createFromFiles {
+        public createFromFiles(String firstName, String lastName, int age, String SSN, String phoneNumber, String streetAddress, double checkingsBalance, double savingsBalance, double creditLine, double creditUsed) {
+
+        }
     }
+
 
     public static void main(String[] args) {
-        button();
+        Person Max = new Person("Max", "Raymond", 20, "2323423", "860-461-8828", "11 Glenwood Road");
+        Max.JSONWriter();
+        Bank maxAccount = new Bank(Max, 1234.1, 22223.3, 1500.0, 222);
+        maxAccount.JSONWriter();
+
     }
-
-
 }

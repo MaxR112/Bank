@@ -1,3 +1,8 @@
+import org.json.simple.JSONObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Bank {
     private double checkingBalance;
     private double savingsBalance;
@@ -14,37 +19,64 @@ public class Bank {
     }
 
     // Setters
-    public void setCheckingBalance(double checkingBalance){
+    public void setCheckingBalance(double checkingBalance) {
         this.checkingBalance = checkingBalance;
     }
-    public void setSavingsBalance(double savingsBalance){
+
+    public void setSavingsBalance(double savingsBalance) {
         this.savingsBalance = savingsBalance;
     }
-    public void setCreditLine(double creditLine){
+
+    public void setCreditLine(double creditLine) {
         this.creditLine = creditLine;
     }
-    public void setCreditUsed(double creditUsed){
+
+    public void setCreditUsed(double creditUsed) {
         this.creditUsed = creditUsed;
     }
-    public void setAccountHolder(Person accountHolder){
+
+    public void setAccountHolder(Person accountHolder) {
         this.accountHolder = accountHolder;
     }
 
     // Getters
-    public double getCheckingBalance(){
+    public double getCheckingBalance() {
         return checkingBalance;
     }
-    public double getSavingsBalance(){
+
+    public double getSavingsBalance() {
         return savingsBalance;
     }
-    public double getCreditLine(){
+
+    public double getCreditLine() {
         return creditLine;
     }
-    public double getCreditUsed(){
+
+    public double getCreditUsed() {
         return creditUsed;
     }
-    public Person getAccountHolder(){
+
+    public Person getAccountHolder() {
         return accountHolder;
+    }
+
+    // JSONWriter - writes data to file when needed
+    public void JSONWriter() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("accountHolder", accountHolder);
+        jsonObject.put("checkingBalance", checkingBalance);
+        jsonObject.put("savingsBalance", savingsBalance);
+        jsonObject.put("creditLine", creditLine);
+        jsonObject.put("creditUsed", creditUsed);
+
+        // Create writer and add to file
+        try {
+            FileWriter writer = new FileWriter("bankData.json", true);
+            writer.write(jsonObject.toString() + "\n");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
 
