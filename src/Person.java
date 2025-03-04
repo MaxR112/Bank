@@ -1,5 +1,5 @@
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -60,23 +60,4 @@ public class Person {
         return streetAddress;
     }
 
-    // JSONWriter - writes data to file when needed
-    public void JSONWriter() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("firstName", firstName);
-        jsonObject.put("lastName", lastName);
-        jsonObject.put("age", age);
-        jsonObject.put("ssn", SSN);
-        jsonObject.put("phoneNumber", phoneNumber);
-        jsonObject.put("streetAddress", streetAddress);
-
-        // Create writer and add to file
-        try {
-            FileWriter writer = new FileWriter("personData.json", true);
-            writer.write(jsonObject.toString() + "\n");
-            writer.close();
-        } catch (IOException e){
-            System.out.println(e);
-        }
-    }
 }

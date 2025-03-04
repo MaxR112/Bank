@@ -1,9 +1,8 @@
 import org.json.simple.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Bank {
+public class Bank{
     private double checkingBalance;
     private double savingsBalance;
     private double creditLine;
@@ -60,23 +59,5 @@ public class Bank {
         return accountHolder;
     }
 
-    // JSONWriter - writes data to file when needed
-    public void JSONWriter() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("accountHolder", accountHolder);
-        jsonObject.put("checkingBalance", checkingBalance);
-        jsonObject.put("savingsBalance", savingsBalance);
-        jsonObject.put("creditLine", creditLine);
-        jsonObject.put("creditUsed", creditUsed);
-
-        // Create writer and add to file
-        try {
-            FileWriter writer = new FileWriter("bankData.json", true);
-            writer.write(jsonObject.toString() + "\n");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-    }
 }
 
