@@ -5,6 +5,5 @@ public class Main {
 
         Bank maxAccount = new Bank(Max, 1234.1, 22223.3, 1500.0, 222);
         fileEditor.createValuesFiles();
-        System.out.println("Test");
     }
 }
